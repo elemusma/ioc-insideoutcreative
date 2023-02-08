@@ -47,6 +47,18 @@ a.text-black:hover {
   letter-spacing: 1em;
 }
 
+.ls-2 {
+  letter-spacing: .2em;
+}
+
+.ls-3 {
+  letter-spacing: .3em;
+}
+
+.ls-4 {
+  letter-spacing: .4em;
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -87,7 +99,7 @@ strong {
 
 .arrows li:before {
   content: "";
-  background: url(https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-Gold.png);
+  background: url('https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-Gold.png');
   background-repeat: no-repeat;
   background-size: contain;
   width: 20px;
@@ -97,6 +109,39 @@ strong {
   left: -30px;
 }
 
+.arrows.gold li {
+  color: var(--accent-primary);
+}
+
+.arrows.gold li:before {
+  background: url('https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-White.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 blockquote {
   font-size: 90%;
 }
+
+.coromant-garamond,
+h2 {
+  font-family: cormorant-garamond, serif;
+  font-weight: 400;
+  letter-spacing: .2em;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+@media only screen and (max-width:767px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* font-family: cormorant-garamond, serif; */

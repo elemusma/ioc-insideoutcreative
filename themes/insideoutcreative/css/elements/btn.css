@@ -11,16 +11,35 @@
     color: white;
 }
 
-.btn-main {
-    background: var(--accent-primary);
-    padding: 10px 25px;
+[class*="btn"] .btn-inner {
     transition: all .25s ease-in-out;
-    display: inline-block;
-    text-decoration: none;
+}
+
+.btn-main .btn-inner {
+    background: var(--accent-primary);
     color: white;
 }
 
-.btn-main:hover {
+.btn-main:hover .btn-inner {
     background: var(--accent-secondary);
-    text-decoration: none;
+}
+
+.btn-second .btn-inner {
+    background: rgba(255, 255, 255, .11);
+    color: #c38862;
+}
+
+.btn-second:hover .btn-inner {
+    background: rgba(255, 255, 255, 1);
+    color: #c38862;
+}
+
+.btn-tertiary .btn-inner {
+    background: var(--accent-primary-light);
+    color: black;
+}
+
+.btn-tertiary:hover .btn-inner {
+    background: var(--accent-primary);
+    color: black;
 }

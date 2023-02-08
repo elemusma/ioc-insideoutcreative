@@ -97,3 +97,32 @@ $('.testimonial-carousel').owlCarousel({
     navText: ["<img src='https://insideoutcreative.io/wp-content/uploads/2023/01/Arrow-with-Circle-Black-Left.png' />", "<img src='https://insideoutcreative.io/wp-content/uploads/2023/01/Arrow-with-Circle-Black-Right.png' />"],
     items: 1,
 });
+
+$('.gallery-carousel').owlCarousel({
+    // center: true,
+    // rtl: true,
+    loop: true,
+    margin: 50,
+    nav: true,
+    dots: false,
+    // stagePadding:170,
+    autoplay: false,
+    autoplayTimeout: 3500,
+    autoplaySpeed: 5000,
+    autoplayHoverPause: false,
+    // animateOut: 'slideOutRight',
+    // animateIn: 'slideInLeft',
+    navText: ["<img src='https://insideoutcreative.io/wp-content/uploads/2022/12/Arrow-Circle-Left.png' />", "<img src='https://insideoutcreative.io/wp-content/uploads/2022/12/Arrow-Circle-Right.png' />"],
+    // items:1,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 2
+        },
+        1000: {
+            items: 3
+        }
+    }
+});

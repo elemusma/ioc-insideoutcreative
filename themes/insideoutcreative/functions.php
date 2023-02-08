@@ -33,8 +33,9 @@ wp_enqueue_style('btn', get_theme_file_uri('/css/elements/btn.css'));
 // fonts
 wp_enqueue_style('fonts', get_theme_file_uri('/css/elements/fonts.css'));
 wp_enqueue_style('proxima-nova', get_theme_file_uri('/proxima-nova/proxima-nova.css'));
-wp_enqueue_style('blair-itc', get_theme_file_uri('/blair-itc/blair-itc.css'));
-wp_enqueue_style('aspira', get_theme_file_uri('/aspira-font/aspira-font.css'));
+// wp_enqueue_style('blair-itc', get_theme_file_uri('/blair-itc/blair-itc.css'));
+// wp_enqueue_style('aspira', get_theme_file_uri('/aspira-font/aspira-font.css'));
+wp_enqueue_style('coromant-garamond', '//use.typekit.net/jsh8aeu.css');
 
 }
 add_action('wp_enqueue_scripts', 'insideoutcreative_stylesheets');
@@ -180,8 +181,18 @@ function btn_shortcode( $atts, $content = null ) {
 	), $atts );
 	
 	// return '<a class="btn-accent-primary" href="' . esc_attr($a['href']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
+
+	$button = "";
+
+	$button .= '<a class="d-inline-block ls-2 small pt-1 pb-1 pl-2 pr-2 ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="transition:all .25s ease-in-out;border:1px solid #4b4b4b;' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '">';
+
+	$button .= '<span class="btn-inner pt-1 pb-1 pl-5 pr-5 d-inline-block text-black" style="border:1px solid #4b4b4b;">';
+	$button .= $content;
+	$button .= '</span>';
+	$button .= '</a>';
 	
-	return '<a class="btn-main ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
+	return $button;
+	// return '<a class="btn-main ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
 	
 	// [button href="#" class="btn-main" style=""]Learn More[/button]
 	

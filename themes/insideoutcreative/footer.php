@@ -2,7 +2,7 @@
 
 echo '<div class="bg-white pt-5 pb-5"></div>';
 
-echo '<footer class="" style="background:#111111;">';
+echo '<footer class="" style="background:#252525;">';
 
 echo '<section class="">';
 echo '<div class="container">';
