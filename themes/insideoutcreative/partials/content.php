@@ -21,7 +21,7 @@ $bgImg = get_sub_field('background_image');
 
 if($bgImg){
     echo wp_get_attachment_image($bgImg['id'],'full','',[
-        'class'=>'w-100 h-100 position-absolute',
+        'class'=>'w-100 h-100 position-absolute bg-img',
         'style'=>'top:0;left:0;object-fit:cover;'
     ]);
 }
@@ -85,7 +85,7 @@ endwhile; endif;
 
             if($bgImg){
                 echo wp_get_attachment_image($bgImg['id'],'full','',[
-                    'class'=>'w-100 h-100 position-absolute',
+                    'class'=>'w-100 h-100 position-absolute bg-img',
                     'style'=>'top:0;left:0;object-fit:cover;'
                 ]);
             }
@@ -109,7 +109,7 @@ endwhile; endif;
         }
 
         if($img):
-        echo '<div class="col-lg-6 pt-lg-0 pt-5 ' . get_sub_field('image_col_classes') . '" style="' . get_sub_field('image_col_style') . '">';
+        echo '<div class="col-lg-6 pt-lg-0 pt-5 col-img ' . get_sub_field('image_col_classes') . '" style="' . get_sub_field('image_col_style') . '">';
             echo wp_get_attachment_image($img['id'],'full','',['class'=>'w-100 h-100','style'=>'object-fit:cover;']);
         echo '</div>';
         endif;
@@ -138,7 +138,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
 
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
-            'class'=>'w-100 h-100 position-absolute',
+            'class'=>'w-100 h-100 position-absolute bg-img',
             'style'=>'top:0;left:0;object-fit:cover;'
         ]);
     }
@@ -176,7 +176,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
 
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
-            'class'=>'w-100 h-100 position-absolute',
+            'class'=>'w-100 h-100 position-absolute bg-img',
             'style'=>'top:0;left:0;object-fit:cover;'
         ]);
     }
@@ -206,7 +206,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
     
         if($bgImg){
             echo wp_get_attachment_image($bgImg['id'],'full','',[
-                'class'=>'w-100 h-100 position-absolute',
+                'class'=>'w-100 h-100 position-absolute bg-img',
                 'style'=>'top:0;left:0;object-fit:cover;'
             ]);
         }
@@ -252,7 +252,7 @@ $bgImg = get_sub_field('background_image');
 
 if($bgImg){
     echo wp_get_attachment_image($bgImg['id'],'full','',[
-        'class'=>'w-100 h-100 position-absolute',
+        'class'=>'w-100 h-100 position-absolute bg-img',
         'style'=>'top:0;left:0;object-fit:cover;'
     ]);
 }
@@ -297,7 +297,7 @@ endwhile; endif;
 
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
-            'class'=>'w-100 h-100 position-absolute',
+            'class'=>'w-100 h-100 position-absolute bg-img',
             'style'=>'top:0;left:0;object-fit:cover;'
         ]);
     }
@@ -443,7 +443,7 @@ endwhile; endif;
 
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
-            'class'=>'w-100 h-100 position-absolute',
+            'class'=>'w-100 h-100 position-absolute bg-img',
             'style'=>'top:0;left:0;object-fit:cover;'
         ]);
     }
@@ -479,15 +479,27 @@ endwhile; endif;
         echo '<section class="position-relative bg-accent-quinary contact-section ' . get_sub_field('classes') . '" style="padding-top:500px;padding-bottom:50px;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
         // echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Old-Paper-Background.jpg" class="w-100 h-100 position-absolute" style="top:0;left:0;object-fit:cover;" alt="">';
+
+        
     
         $bgImg = get_sub_field('background_image');
     
         if($bgImg){
             echo wp_get_attachment_image($bgImg['id'],'full','',[
-                'class'=>'w-100 h-100 position-absolute',
+                'class'=>'w-100 h-100 position-absolute bg-img',
                 'style'=>'top:0;left:0;object-fit:cover;'
             ]);
         }
+
+        echo '<div 
+        class="bg-white position-absolute w-100"
+        style="top:0;left:0;height:100px;opacity:.6;"
+        ></div>';
+
+        echo '<div 
+        class="bg-white position-absolute w-100"
+        style="bottom:0;left:0;height:200px;opacity:.6;"
+        ></div>';
 
         // $bgImg = get_sub_field('background_image');
         // echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'position-absolute w-100 h-100','style'=>'top:0;left:0;object-fit:cover;']);
@@ -524,7 +536,7 @@ endwhile; endif;
 
             if($bgImg){
                 echo wp_get_attachment_image($bgImg['id'],'full','',[
-                    'class'=>'w-100 h-100 position-absolute',
+                    'class'=>'w-100 h-100 position-absolute bg-img',
                     'style'=>'top:0;left:0;object-fit:cover;'
                 ]);
             }

@@ -21,22 +21,25 @@ wp_head();
 <?php
 if(get_field('body','options')) { the_field('body','options'); }
 // echo '<div class="blank-space"></div>';
-echo '<header class="position-fixed w-100 pt-md-3 pt-2 pb-3" style="top:0;left:0;transition:all .25s ease-in-out;z-index:6;">';
+echo '<header 
+class="position-fixed w-100 pt-md-3 pt-2 pb-3" 
+style="top:0;left:0;transition:all .25s ease-in-out;z-index:6;background:rgba(0,0,0,.5);"
+>';
 
-echo '<div class="position-absolute w-100 bg-accent-quinary header-background" style="top:0;left:0;transition:all .5s ease-in-out;"></div>';
+// echo '<div class="position-absolute w-100 bg-accent-quinary header-background" style="top:0;left:0;transition:all .5s ease-in-out;"></div>';
 
 echo '<div class="nav">';
-echo '<div class="container-fluid">';
-echo '<div class="row align-items-center justify-content-center">';
+echo '<div class="container">';
+echo '<div class="row align-items-center">';
 
-echo '<div class="col-lg-4 col-md-6 mobile-hidden">';
-wp_nav_menu(array(
-    'menu' => 'Primary Left',
-    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center text-white mb-0'
-    )); 
-echo '</div>';
+// echo '<div class="col-lg-4 col-md-6 mobile-hidden">';
+// wp_nav_menu(array(
+//     'menu' => 'Primary Left',
+//     'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center text-white mb-0'
+//     )); 
+// echo '</div>';
 
-echo '<div class="col-lg-4 col-md-3 col-6 text-center">';
+echo '<div class="col-lg-3 col-md-3 col-6 text-center">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
@@ -49,7 +52,7 @@ echo '</div>';
 
 echo '<div class="col-lg-4 col-md-6 mobile-hidden">';
 wp_nav_menu(array(
-    'menu' => 'Primary Right',
+    'menu' => 'primary',
     'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center text-white mb-0'
 ));
 echo '</div>';

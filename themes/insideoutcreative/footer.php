@@ -1,6 +1,8 @@
 <?php
 
-echo '<div class="bg-white pt-5 pb-5"></div>';
+if(is_front_page()){
+    echo '<div class="bg-white pt-5 pb-5"></div>';
+}
 
 echo '<footer class="" style="background:#252525;">';
 
@@ -41,30 +43,32 @@ echo '</div>';
 
 echo '</div>'; // end of col
 
-echo '<div class="col-lg-4 col-md-6 p-5 order-lg-2 order-1" style="padding-bottom:75px!important;">';
-echo '<div class="position-absolute bg-black w-100" style="top:-30px;left:0;height:30px;"></div>';
+echo '<div class="col-lg-4 col-md-6 order-lg-2 order-1 p-0" style="padding-bottom:75px!important;">';
+// echo '<div class="position-absolute bg-black w-100" style="top:-30px;left:0;height:30px;"></div>';
 echo '<div class="position-absolute bg-black w-100 h-100" style="mix-blend-mode:multiply;top:0;left:0;"></div>';
 
+echo '<div class="position-relative w-100 p-5" style="background:#252525;">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
 $logoFooter = get_field('logo_footer','options'); 
 
 if($logoFooter){
-echo wp_get_attachment_image($logoFooter['id'],'full',"",['class'=>'w-100 h-auto position-relative']); 
+    echo wp_get_attachment_image($logoFooter['id'],'full',"",['class'=>'w-100 h-auto position-relative']); 
 } elseif($logo) {
-echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
+    echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
 }
 
 echo '</a>';
+echo '</div>';
 
-// echo '<div class="position-relative">';
-//         echo '<p class="text-white">USEFUL LINK</p>';
-//         wp_nav_menu(array(
-//                 'menu' => 'footer',
-//                 'menu_class'=>'menu list-unstyled text-white text-uppercase'
-//         ));
-// echo '</div>';
+echo '<div class="position-relative p-4 pt-5 text-center">';
+        echo '<p class="text-white">USEFUL LINK</p>';
+        wp_nav_menu(array(
+                'menu' => 'primary',
+                'menu_class'=>'menu list-unstyled text-white text-uppercase'
+        ));
+echo '</div>';
 
 echo '</div>';
 

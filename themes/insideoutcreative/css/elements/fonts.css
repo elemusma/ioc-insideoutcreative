@@ -43,6 +43,18 @@ a.text-black:hover {
   line-height: 1;
 }
 
+.lh-2 {
+  line-height: 2;
+}
+
+.lh-3 {
+  line-height: 3;
+}
+
+.lh-4 {
+  line-height: 4;
+}
+
 .ls-1 {
   letter-spacing: 1em;
 }
