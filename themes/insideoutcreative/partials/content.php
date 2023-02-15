@@ -104,7 +104,7 @@ endwhile; endif;
             echo '<div class="row row-content align-items-center justify-content-center">';
             // echo '</div>';
         } else {
-            echo '<div class="row row-content flex-lg-row-reverse align-items-center justify-content-center">';
+            echo '<div class="row row-content flex-lg-row-reverse align-items-center justify-content-center s">';
 
         }
 
