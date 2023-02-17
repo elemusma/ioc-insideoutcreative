@@ -43,3 +43,8 @@
     background: var(--accent-primary);
     color: black;
 }
+
+.btns:hover .btn-inner {
+    background: var(--accent-primary);
+    color: white;
+}

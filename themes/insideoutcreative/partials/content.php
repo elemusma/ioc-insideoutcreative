@@ -323,7 +323,7 @@ endwhile; endif;
 
         echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
-        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:75px;padding-bottom:75px;">';
+        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:95px;padding-bottom:95px;">';
 
         // start of hover box
         echo '<div class="hover-box bg-accent-dark position-absolute w-100 h-100 z-1 d-flex align-items-center justify-content-center pl-5 pr-5 col-services-hover-content" style="border:6px solid #fbcf02;top:0;left:0;transition:all .25s ease-in-out;">';
@@ -338,7 +338,7 @@ endwhile; endif;
         echo '<div class="position-absolute w-100 h-100 bg-accent-quaternary" style="top:0;left:0;mix-blend-mode:overlay;opacity:.28;border:2px solid var(--accent-primary);"></div>';
 
         echo '<div class="position-relative pb-3 h-100">';
-        echo '<span class="h1 mb-5 d-block coromant-garamond" style="font-size:50px;">' . get_sub_field('title') . '</span>';
+        echo '<span class="h1 mb-5 d-block coromant-garamond" style="font-size:41px;">' . get_sub_field('title') . '</span>';
 
         echo '<span class="mb-5 d-block coromant-garamond pl-5 h4" style="">' . get_sub_field('subtitle') . '</span>';
 

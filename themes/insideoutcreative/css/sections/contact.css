@@ -1,5 +1,5 @@
 input.gform_button.button {
-  background-color: #252525;
+  background-color: var(--accent-primary);
   border: none;
   padding: 10px 35px;
   cursor: pointer;
@@ -13,6 +13,10 @@ input.gform_button.button {
   position: relative;
   margin-bottom: 0 !important;
   font-weight: 700;
+}
+
+input.gform_button.button:hover {
+  background: var(--accent-secondary);
 }
 
 footer .gform_wrapper.gravity-theme .gfield_label,
@@ -36,15 +40,15 @@ footer .gform_footer.top_label {
   transition: all 0.25s ease-in-out;
 }
 
-.gform_footer.top_label:hover {
+/* .gform_footer.top_label:hover {
   background: transparent;
-}
+} */
 
-input.gform_button.button:hover {
+/* input.gform_button.button:hover {
   background-color: transparent;
   border-color: transparent;
   color: var(--accent-primary);
-}
+} */
 
 input:focus-visible,
 textarea:focus-visible {
