@@ -110,3 +110,19 @@
 }
 
 /* end of contact */
+
+/* start of content + icons */
+.col-icons-hover,
+.col-icons-hover-border {
+    transition: all .25s ease-in-out;
+}
+
+.col-icons-hover:hover {
+    background: rgba(255, 255, 255, .25);
+}
+
+.col-icons-hover:hover .col-icons-hover-border {
+    border-color: white !important;
+}
+
+/* end of content + icons */

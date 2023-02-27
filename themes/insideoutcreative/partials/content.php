@@ -22,7 +22,7 @@ $bgImg = get_sub_field('background_image');
 if($bgImg){
     echo wp_get_attachment_image($bgImg['id'],'full','',[
         'class'=>'w-100 h-100 position-absolute bg-img',
-        'style'=>'top:0;left:0;object-fit:cover;'
+        'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
     ]);
 }
 
@@ -86,7 +86,7 @@ endwhile; endif;
             if($bgImg){
                 echo wp_get_attachment_image($bgImg['id'],'full','',[
                     'class'=>'w-100 h-100 position-absolute bg-img',
-                    'style'=>'top:0;left:0;object-fit:cover;'
+                    'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
                 ]);
             }
 
@@ -141,7 +141,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
             'class'=>'w-100 h-100 position-absolute bg-img',
-            'style'=>'top:0;left:0;object-fit:cover;'
+            'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
         ]);
     }
 
@@ -179,7 +179,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
             'class'=>'w-100 h-100 position-absolute bg-img',
-            'style'=>'top:0;left:0;object-fit:cover;'
+            'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
         ]);
     }
 
@@ -209,7 +209,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
         if($bgImg){
             echo wp_get_attachment_image($bgImg['id'],'full','',[
                 'class'=>'w-100 h-100 position-absolute bg-img',
-                'style'=>'top:0;left:0;object-fit:cover;'
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
             ]);
         }
 
@@ -255,7 +255,7 @@ $bgImg = get_sub_field('background_image');
 if($bgImg){
     echo wp_get_attachment_image($bgImg['id'],'full','',[
         'class'=>'w-100 h-100 position-absolute bg-img',
-        'style'=>'top:0;left:0;object-fit:cover;'
+        'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
     ]);
 }
 
@@ -300,7 +300,7 @@ endwhile; endif;
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
             'class'=>'w-100 h-100 position-absolute bg-img',
-            'style'=>'top:0;left:0;object-fit:cover;'
+            'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
         ]);
     }
 
@@ -446,7 +446,7 @@ endwhile; endif;
     if($bgImg){
         echo wp_get_attachment_image($bgImg['id'],'full','',[
             'class'=>'w-100 h-100 position-absolute bg-img',
-            'style'=>'top:0;left:0;object-fit:cover;'
+            'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
         ]);
     }
 
@@ -489,7 +489,7 @@ endwhile; endif;
         if($bgImg){
             echo wp_get_attachment_image($bgImg['id'],'full','',[
                 'class'=>'w-100 h-100 position-absolute bg-img',
-                'style'=>'top:0;left:0;object-fit:cover;'
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
             ]);
         }
 
@@ -539,7 +539,7 @@ endwhile; endif;
             if($bgImg){
                 echo wp_get_attachment_image($bgImg['id'],'full','',[
                     'class'=>'w-100 h-100 position-absolute bg-img',
-                    'style'=>'top:0;left:0;object-fit:cover;'
+                    'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
                 ]);
             }
 
@@ -585,7 +585,7 @@ endwhile; endif;
         if($bgImg){
             echo wp_get_attachment_image($bgImg['id'],'full','',[
                 'class'=>'w-100 h-100 position-absolute bg-img',
-                'style'=>'top:0;left:0;object-fit:cover;'
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
             ]);
         }
 
@@ -600,6 +600,105 @@ endwhile; endif;
                 echo '</div>';
 
                 echo '</div>';
+            echo '</div>';
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
+} elseif($layout == 'Portfolio'){
+    if(have_rows('portfolio_group')): while(have_rows('portfolio_group')): the_row();
+    echo '<section class="position-relative ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+
+        echo '<div class="container">';
+            echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
+
+            if(get_sub_field('content')){
+                echo '<div class="col-12 pb-5 text-center">';
+                    echo get_sub_field('content');
+                echo '</div>';
+            }
+
+            if(have_rows('gallery_repeater')):
+                while(have_rows('gallery_repeater')): the_row();
+                $img = get_sub_field('image');
+                echo '<div class="col-lg-4 col-md-6 text-center mb-4">';
+                echo wp_get_attachment_image($img['id'], 'full', '', [
+                    'class'=>'w-100',
+                    'style'=>'height:450px;object-fit:cover;'
+                ]);
+                echo '<span class="cormorant-garamond d-block">' . get_sub_field('title') . '</span>';
+                echo '<span class="raleway d-block">' . get_sub_field('subtitle') . '</span>';
+                echo '</div>';
+                endwhile;
+            endif;
+
+            echo '</div>';
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
+} elseif($layout == 'Content + Icons'){
+    if(have_rows('content_+_icons')): while(have_rows('content_+_icons')): the_row();
+    echo '<section class="position-relative bg-accent text-white ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+
+        echo '<div class="container">';
+            echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
+
+            echo '<div class="col-lg-3">';
+                echo get_sub_field('content');
+            echo '</div>';
+            
+            if(have_rows('icons_repeater')): 
+                echo '<div class="col-lg-9">';
+                echo '<div class="row">';
+                while(have_rows('icons_repeater')): the_row();
+                $img = get_sub_field('image');
+                echo '<div class="col-lg-3 text-center mb-4" style="">';
+
+                echo '<div class="position-relative col-icons-hover h-100 pt-5" style="border:1px solid white;">';
+                echo '<div class="m-auto col-icons-hover-border" style="width:75px;height:75px;border:2px solid #d29f1d;border-radius:50%;padding:10px;">';
+                echo wp_get_attachment_image($img['id'],'full','',[
+                    'class'=>'',
+                    'style'=>'height:50px;width:50px;object-fit:contain;'
+                ]);
+                echo '</div>';
+                echo '<h3 class="h6 cormorant-garamond small pt-4">' . get_sub_field('title') . '</h3>';
+                echo '</div>';
+
+
+                echo '</div>';
+                endwhile; 
+                echo '</div>';
+                echo '</div>';
+            endif;
             echo '</div>';
         echo '</div>';
 
