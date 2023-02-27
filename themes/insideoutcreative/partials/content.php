@@ -92,13 +92,15 @@ endwhile; endif;
 
         echo '<div class="container-fluid">';
 
-        echo '<div class="row">';
-            echo '<div class="col-12 text-center pb-5">';
+        if(get_sub_field('content_top')){
+            echo '<div class="row">';
+                echo '<div class="col-12 text-center pb-5">';
 
-            echo get_sub_field('content_top');
+                echo get_sub_field('content_top');
 
+                echo '</div>';
             echo '</div>';
-        echo '</div>';
+        }
 
         if($imgSide == 'Left'){
             echo '<div class="row row-content align-items-center justify-content-center">';
@@ -569,6 +571,41 @@ endwhile; endif;
 
     endwhile; endif;
 
+} elseif($layout == 'Full Height Section'){
+    if(have_rows('full_height_section_group')): while(have_rows('full_height_section_group')): the_row();
+
+    echo '<section class="position-relative content-section ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;'
+            ]);
+        }
+
+        echo '<div class="container">';
+            echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
+                echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+                echo '<h3 class="text-accent raleway h5" style="letter-spacing: 0.3em;">' . get_sub_field('pretitle') . '</h3>';
+                echo '<div class="cormorant-garamond text-white">' . get_sub_field('title') . '</div>';
+
+                echo '<div class="' . get_sub_field('content_classes') . '" style="' . get_sub_field('content_style') . '">';
+                echo get_sub_field('content');
+                echo '</div>';
+
+                echo '</div>';
+            echo '</div>';
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
 }
 
 endwhile; endif;

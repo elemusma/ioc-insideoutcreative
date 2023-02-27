@@ -19,9 +19,9 @@ a {
   color: var(--accent-tertiary);
 }
 
-.text-accent {
+/* .text-accent {
   color: var(--accent-primary);
-}
+} */
 
 .text-gray {
   color: #585556;
@@ -135,15 +135,24 @@ blockquote {
   font-size: 90%;
 }
 
-.coromant-garamond,
+.cormorant-garamond,
 h2 {
   font-family: cormorant-garamond, serif;
   font-weight: 400;
   letter-spacing: .2em;
 }
 
+h1 {
+  font-size: 3.5rem;
+}
+
 h2 {
   font-size: 3rem;
+}
+
+.raleway {
+  font-family: "raleway", sans-serif;
+  font-weight: 300;
 }
 
 @media only screen and (max-width:767px) {
@@ -157,3 +166,20 @@ h2 {
 }
 
 /* font-family: cormorant-garamond, serif; */
+
+/* Raleway Regular
+font-family: "raleway", sans-serif;
+font-weight: 400;
+font-style: normal;
+Raleway Italic
+font-family: "raleway", sans-serif;
+font-weight: 400;
+font-style: italic;
+Raleway Bold
+font-family: "raleway", sans-serif;
+font-weight: 700;
+font-style: normal;
+Raleway Bold Italic
+font-family: "raleway", sans-serif;
+font-weight: 700;
+font-style: italic; */
