@@ -636,12 +636,15 @@ endwhile; endif;
                 while(have_rows('gallery_repeater')): the_row();
                 $img = get_sub_field('image');
                 echo '<div class="col-lg-4 col-md-6 text-center mb-4">';
+                echo '<div class="position-relative img-hover overflow-h">';
                 echo wp_get_attachment_image($img['id'], 'full', '', [
                     'class'=>'w-100',
-                    'style'=>'height:450px;object-fit:cover;'
+                    'style'=>'height:510px;object-fit:cover;transform-origin: top;'
                 ]);
-                echo '<span class="cormorant-garamond d-block">' . get_sub_field('title') . '</span>';
-                echo '<span class="raleway d-block">' . get_sub_field('subtitle') . '</span>';
+                echo '</div>';
+
+                echo '<span class="cormorant-garamond d-block pt-4">' . get_sub_field('title') . '</span>';
+                echo '<span class="raleway d-block" style="font-weight:500;">' . get_sub_field('subtitle') . '</span>';
                 echo '</div>';
                 endwhile;
             endif;
