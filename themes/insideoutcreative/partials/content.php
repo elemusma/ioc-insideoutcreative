@@ -635,16 +635,22 @@ endwhile; endif;
             if(have_rows('gallery_repeater')):
                 while(have_rows('gallery_repeater')): the_row();
                 $img = get_sub_field('image');
-                echo '<div class="col-lg-4 col-md-6 text-center mb-4">';
-                echo '<div class="position-relative img-hover overflow-h">';
+                echo '<div class="col-lg-4 col-md-6 text-center mb-5 col-portfolio">';
+                echo '<div class="position-relative col-portfolio-img">';
+                // echo '<div class="position-relative img-hover overflow-h">';
+                echo '<a href="' . wp_get_attachment_image_url($img['id'], 'full') . '" data-lightbox="img-set-portfolio" data-title="' . $img['title'] . '">';
                 echo wp_get_attachment_image($img['id'], 'full', '', [
-                    'class'=>'w-100',
-                    'style'=>'height:510px;object-fit:cover;transform-origin: top;'
+                    'class'=>'w-100 position-relative z-1 img-portfolio',
+                    'style'=>'height:510px;object-fit:cover;transform-origin:top;'
                 ]);
+                echo '</a>';
+                echo '<div class="bg-accent h-100 position-absolute col-portfolio-hover-bg" style="width:95%;top:0;left:2.5%;z-index:0;"></div>';
+                // echo '</div>';
                 echo '</div>';
-
+                
                 echo '<span class="cormorant-garamond d-block pt-4">' . get_sub_field('title') . '</span>';
                 echo '<span class="raleway d-block" style="font-weight:500;">' . get_sub_field('subtitle') . '</span>';
+                
                 echo '</div>';
                 endwhile;
             endif;

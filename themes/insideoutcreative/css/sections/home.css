@@ -111,6 +111,20 @@
 
 /* end of contact */
 
+/* start of portfolio */
+.col-portfolio,
+.col-portfolio-img,
+.col-portfolio-hover-bg {
+    transition: all .25s ease-in-out;
+}
+
+.col-portfolio-img:hover .col-portfolio-hover-bg {
+    top: -10px !important;
+    left: 7% !important;
+}
+
+/* end of portfolio */
+
 /* start of content + icons */
 .col-icons-hover,
 .col-icons-hover-border {
