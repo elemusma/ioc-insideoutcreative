@@ -714,6 +714,65 @@ endwhile; endif;
     echo '</section>';
 
     endwhile; endif;
+} elseif($layout == 'Content + Diagonal Images'){
+    if(have_rows('content_diagonal_images')): while(have_rows('content_diagonal_images')): the_row();
+    echo '<section class="position-relative ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+        echo '<div class="position-absolute w-100 h-100 bg-black" style="top:0;left:0;opacity:.75;"></div>';
+
+        $gallery = get_sub_field('gallery');
+
+        if( $gallery ): 
+            $galleryCounter = 0;
+            echo '<div class="position-absolute h-100 w-100" style="top:0;right:0;">';
+            foreach( $gallery as $image ):
+                $galleryCounter++;
+                // if($galleryCounter == 1){
+                    echo '<div class="col-gallery-diagonal position-absolute h-100 z-3" style="top:0;right:0;">';
+                    // echo '</div>';
+                // } elseif ($galleryCounter == 2){
+                //     echo '<div class="col-gallery-diagonal position-absolute h-100 z-3" style="top:0;right:0;" data-aos="fade-left" data-aos-delay="' . $galleryCounter*2 . '00">';
+                //     // echo '</div>';
+                // } elseif ($galleryCounter == 3){
+                //     echo '<div class="col-gallery-diagonal position-absolute h-100 z-3" style="top:0;right:0;" data-aos="fade-left" data-aos-delay="' . $galleryCounter*3 . '00">';
+                //     // echo '</div>';
+                // }
+                    
+                    echo '<div class="bg-accent position-absolute w-100 h-100" style="top:0;left:-5px;"></div>';
+                    
+                    echo wp_get_attachment_image($image['id'], 'full','',[
+                        'class'=>'w-100 h-100 position-relative z-1 col-gallery-diagonal-img',
+                        'style'=>'object-fit:cover;'
+                        ] );
+                        
+                        echo '</div>';
+            endforeach; 
+            echo '</div>';
+        endif;
+
+        echo '<div class="container-fluid">';
+            echo '<div class="row">';
+                echo '<div class="col-lg-3 text-white">';
+                    echo get_sub_field('content');
+                echo '</div>';
+            echo '</div>';
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
 }
 
 endwhile; endif;
