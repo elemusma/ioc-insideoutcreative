@@ -214,3 +214,26 @@
 }
 
 /* end of content + diagonal images */
+
+/* start of review carousel with icons */
+
+.review-section .bg-img {
+    height: 60% !important;
+    bottom: 0;
+    top: unset !important;
+}
+
+.review-carousel button.owl-next {
+    right: -20%;
+}
+
+.review-carousel button.owl-prev {
+    left: -20%;
+}
+
+.review-carousel button.owl-next img,
+.review-carousel button.owl-prev img {
+    width: 100px;
+}
+
+/* end of review carousel with icons */

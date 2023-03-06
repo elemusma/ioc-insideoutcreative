@@ -126,3 +126,32 @@ $('.gallery-carousel').owlCarousel({
         }
     }
 });
+
+$('.review-carousel').owlCarousel({
+    // center: true,
+    // rtl: true,
+    loop: true,
+    margin: 0,
+    nav: true,
+    dots: false,
+    // stagePadding:170,
+    autoplay: true,
+    autoplayTimeout: 3500,
+    autoplaySpeed: 5000,
+    autoplayHoverPause: false,
+    // animateOut: 'slideOutRight',
+    // animateIn: 'slideInLeft',
+    navText: ["<img src='https://insideoutcreative.io/wp-content/uploads/2023/03/Arrow-Circle-Left-White.png' />", "<img src='https://insideoutcreative.io/wp-content/uploads/2023/03/Arrow-Circle-Right-White.png' />"],
+    items: 1,
+    // responsive: {
+    //     0: {
+    //         items: 1
+    //     },
+    //     600: {
+    //         items: 2
+    //     },
+    //     1000: {
+    //         items: 3
+    //     }
+    // }
+});

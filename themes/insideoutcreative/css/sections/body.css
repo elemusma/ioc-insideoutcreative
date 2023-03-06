@@ -5,6 +5,7 @@
   --accent-secondary: #182236;
   --accent-tertiary: #a49c86;
   --accent-quaternary: #2c281d;
+  --accent-quinary: #f2efe5;
   --accent-gray: #2a3136;
 }
 
@@ -68,6 +69,10 @@ a.bg-accent-tertiary:hover {
 
 .bg-accent-quaternary {
   background: var(--accent-quaternary);
+}
+
+.bg-accent-quinary {
+  background: var(--accent-quinary);
 }
 
 a.bg-accent-quaternary:hover {

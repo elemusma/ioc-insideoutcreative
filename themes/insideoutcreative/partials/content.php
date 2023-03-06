@@ -773,6 +773,163 @@ endwhile; endif;
     echo '</section>';
 
     endwhile; endif;
+} elseif($layout == 'Review Carousel with Icons') {
+
+    if(have_rows('review_carousel_with_icons')): while(have_rows('review_carousel_with_icons')): the_row();
+
+    echo '<section class="position-relative ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        echo wp_get_attachment_image(452,'full','',[
+            'class'=>'w-100 h-100 position-absolute bg-img',
+            'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+        ]);
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+
+        echo '<div class="container">';
+        echo '<div class="row">';
+            echo '<div class="col-12 text-center">';
+                echo '<h3 class="text-accent raleway h5">' . get_sub_field('pretitle') . '</h3>';
+                echo '<h2 class="">' . get_sub_field('title') . '</h2>';
+                if(get_sub_field('content')){
+                    echo get_sub_field('content');
+                }
+            echo '</div>';
+        echo '</div>';
+
+        
+        $gallery = get_sub_field('gallery');
+        if( $gallery ): 
+            echo '<div class="row justify-content-center">';
+            echo '<div class="col-lg-9">';
+            echo '<div class="review-carousel owl-carousel owl-theme arrows-middle">';
+            foreach( $gallery as $image ):
+                echo '<div class="col-portfolio mt-3 mb-3 overflow-h">';
+                // echo '<div class="position-relative">';
+                // echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
+                echo wp_get_attachment_image($image['id'], 'full','',[
+                    'class'=>'w-100',
+                    'style'=>'height:525px;object-fit:cover;object-position:top;'
+                    ] );
+                    // echo '</a>';
+                    // echo '</div>';
+                    echo '</div>';
+            endforeach; 
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        endif;
+
+        if(have_rows('icons_repeater')):
+            echo '<div class="row row-content justify-content-center pt-5">';
+                while(have_rows('icons_repeater')): the_row();
+                $icon = get_sub_field('icon');
+                echo '<div class="col-lg-3 col-md-4 col-6 text-center mb-5">';
+                echo '<div class="border-hover d-flex align-items-center justify-content-center ml-auto mr-auto mb-4" style="border-radius:50%;height:75px;width:75px;border:1px solid var(--accent-primary);">';
+    
+                if($icon){
+                    echo wp_get_attachment_image($icon['id'],'full','',['class'=>'','style'=>'height:55px;width:55px;object-fit:contain;']);
+                }
+    
+                echo '</div>';
+                    
+                    echo '<h3 class="h6 text-white bold" style="letter-spacing:.2em;">' . get_sub_field('title') . '</h3>';
+
+                    if(get_sub_field('content')){
+                        echo '<div class="font-italic cormorant-garamond lead" style="color:#b2b2b1;">';
+                            echo get_sub_field('content');
+                        echo '</div>';
+                    }
+
+                echo '</div>';
+                endwhile;
+            echo '</div>';
+            endif;
+
+
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
+
+} elseif($layout == 'Review Grid'){
+
+    if(have_rows('review_grid_group')): while(have_rows('review_grid_group')): the_row();
+
+    echo '<section class="position-relative bg-accent-quinary ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+    if(get_sub_field('show_borders') == 'Yes'){
+        echo get_template_part('partials/borders-gold');
+    }
+
+        $bgImg = get_sub_field('background_image');
+
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+
+        if(have_rows('reviews_repeater')):
+            echo '<div class="container">';
+            echo '<div class="row">';
+            while(have_rows('reviews_repeater')): the_row();
+            $layout = get_sub_field('content_or_image');
+
+            if($layout == 'Content'){
+                if(have_rows('content_group')): while(have_rows('content_group')): the_row();
+                echo '<div class="col-lg-4 col-md-6 text-center">';
+                echo '<div class="pt-5 pb-5 pl-4 pr-4">';
+
+                echo '<div style="line-height:2;">';
+                echo get_sub_field('content');
+                echo '</div>';
+                
+                echo '<span class="ls-2 d-block pt-4" style="color:#a38332;">' . get_sub_field('name') . '</span>';
+                echo '<span class="bold ls-2 d-block pt-2">' . get_sub_field('title') . '</span>';
+                
+                echo '</div>';
+                echo '</div>';
+                endwhile; endif;
+            }
+
+            if($layout == 'Image'){
+                if(have_rows('image_group')): while(have_rows('image_group')): the_row();
+                echo '<div class="col-lg-4 col-md-6 text-center p-0">';
+                echo '<div class="position-absolute bg-white" style="top:-4%;left:-4%;width:108%;height:108%;"></div>';
+                $img = get_sub_field('image');
+
+                echo wp_get_attachment_image($img['id'],'full','',[
+                    'class'=>'w-100 h-100 position-relative z-1',
+                    'style'=>'object-fit:cover;'
+                ]);
+                echo '</div>';
+                endwhile; endif;
+            }
+
+                
+            endwhile;
+            echo '</div>';
+            echo '</div>';
+        endif;
+
+    echo '</section>';
+
+    endwhile; endif;
+
 }
 
 endwhile; endif;
