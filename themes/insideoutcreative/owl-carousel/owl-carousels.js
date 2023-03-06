@@ -106,7 +106,7 @@ $('.gallery-carousel').owlCarousel({
     nav: true,
     dots: false,
     // stagePadding:170,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 3500,
     autoplaySpeed: 5000,
     autoplayHoverPause: false,
@@ -118,10 +118,10 @@ $('.gallery-carousel').owlCarousel({
         0: {
             items: 1
         },
-        600: {
+        767: {
             items: 2
         },
-        1000: {
+        992: {
             items: 3
         }
     }

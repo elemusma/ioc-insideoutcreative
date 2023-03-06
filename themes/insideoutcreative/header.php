@@ -67,15 +67,15 @@ echo '</div>';
 echo '<div class="col-lg-10 col-md-9 col-6 desktop-hidden">';
 echo '<a id="navToggle" class="nav-toggle">';
 echo '<div>';
-echo '<div class="line-1 bg-white"></div>';
-echo '<div class="line-2 bg-white"></div>';
-echo '<div class="line-3 bg-white"></div>';
+echo '<div class="line-1 bg-accent"></div>';
+echo '<div class="line-2 bg-accent"></div>';
+echo '<div class="line-3 bg-accent"></div>';
 echo '</div>';
 echo '</a>';
 echo '</div>';
 
 echo '<div id="navMenuOverlay" class="position-fixed z-2"></div>';
-echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-white desktop-hidden" id="navItems">';
+echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-accent-gray desktop-hidden" id="navItems">';
 
 echo '<div class="pt-5 pb-5">';
 echo '<div class="close-menu">';
@@ -94,12 +94,7 @@ echo '</a>';
 echo '</div>';
 
 wp_nav_menu(array(
-    'menu' => 'Primary Left',
-    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center mb-0'
-));
-
-wp_nav_menu(array(
-    'menu' => 'Primary Right',
+    'menu' => 'primary',
     'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center mb-0'
 ));
 

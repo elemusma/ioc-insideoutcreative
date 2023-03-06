@@ -150,13 +150,13 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
 
     if(have_rows('columns')): while(have_rows('columns')): the_row();
     echo '<div class="col-lg-3 col-md-6 text-center pt-lg-0 pb-lg-0 position-relative" style="padding-top:100px;padding-bottom:100px;">';
-    echo '<span class="position-absolute h1 mb-0 text-columns-big-title coromant-garamond" style="
+    echo '<span class="position-absolute h1 mb-0 text-columns-big-title cormorant-garamond" style="
     opacity: .29;
     top: -50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-size: 145px;
-    color:var(--accent-primary);
+    font-size: 125px;
+    color:var(--accent-primary-dark);
     ">' . get_sub_field('big_title') . '</span>';
 
     echo '<span class="" style="color:var(--accent-septenary);letter-spacing:0.5em;">' . get_sub_field('small_title') . '</span>';
@@ -528,7 +528,7 @@ endwhile; endif;
 
     if(have_rows('content_carousel_group')): while(have_rows('content_carousel_group')): the_row();
 
-    echo '<section class="position-relative content-section ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative section-content-carousel ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
         if(get_sub_field('show_borders') == 'Yes'){
             echo get_template_part('partials/borders-gold');
@@ -553,9 +553,13 @@ endwhile; endif;
 
             $gallery = get_sub_field('carousel');
             if( $gallery ): 
-                echo '<div class="gallery-carousel owl-carousel owl-theme">';
+                // echo '<div class="position-relative">';
+                
+                // echo '<div class="position-absolute bg-gradient w-100 h-100 z-2" style="top:0;left:0;background: rgb(0,0,0);
+                // background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(0,0,0,1) 100%);pointer-events:none;"></div>';
+                echo '<div class="gallery-carousel owl-carousel owl-theme arrows-middle">';
                 foreach( $gallery as $image ):
-                    echo '<div class="col-portfolio mt-3 mb-3 overflow-h">';
+                    echo '<div class="overflow-h position-relative">';
                     // echo '<div class="position-relative">';
                     echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
                     echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:300px;object-fit:cover;object-position:top;'] );
@@ -564,6 +568,7 @@ endwhile; endif;
                     echo '</div>';
                 endforeach; 
                 echo '</div>';
+                // echo '</div>';
             endif;
 
 
@@ -690,7 +695,7 @@ endwhile; endif;
                 echo '<div class="row">';
                 while(have_rows('icons_repeater')): the_row();
                 $img = get_sub_field('image');
-                echo '<div class="col-lg-3 text-center mb-4" style="">';
+                echo '<div class="col-lg-3 col-6 text-center mb-4" style="">';
 
                 echo '<div class="position-relative col-icons-hover h-100 pt-5" style="border:1px solid white;">';
                 echo '<div class="m-auto col-icons-hover-border" style="width:75px;height:75px;border:2px solid #d29f1d;border-radius:50%;padding:10px;">';
@@ -699,7 +704,7 @@ endwhile; endif;
                     'style'=>'height:50px;width:50px;object-fit:contain;'
                 ]);
                 echo '</div>';
-                echo '<h3 class="h6 cormorant-garamond small pt-4">' . get_sub_field('title') . '</h3>';
+                echo '<h3 class="h6 cormorant-garamond small pt-4 pl-2 pr-2">' . get_sub_field('title') . '</h3>';
                 echo '</div>';
 
 
@@ -716,7 +721,7 @@ endwhile; endif;
     endwhile; endif;
 } elseif($layout == 'Content + Diagonal Images'){
     if(have_rows('content_diagonal_images')): while(have_rows('content_diagonal_images')): the_row();
-    echo '<section class="position-relative ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative section-content-diagonal-images ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
     if(get_sub_field('show_borders') == 'Yes'){
         echo get_template_part('partials/borders-gold');
@@ -762,7 +767,7 @@ endwhile; endif;
             echo '</div>';
         endif;
 
-        echo '<div class="container-fluid">';
+        echo '<div class="container-fluid position-relative z-3 text-shadow">';
             echo '<div class="row">';
                 echo '<div class="col-lg-3 text-white">';
                     echo get_sub_field('content');
