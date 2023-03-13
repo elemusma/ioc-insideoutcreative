@@ -103,10 +103,10 @@ endwhile; endif;
         }
 
         if($imgSide == 'Left'){
-            echo '<div class="row row-content align-items-center justify-content-center">';
+            echo '<div class="row row-content align-items-center justify-content-center ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
             // echo '</div>';
         } else {
-            echo '<div class="row row-content flex-lg-row-reverse align-items-center justify-content-center s">';
+            echo '<div class="row row-content flex-lg-row-reverse align-items-center justify-content-center ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
 
         }
 
@@ -270,10 +270,10 @@ echo '<div class="container">';
         $gallery = get_sub_field('gallery');
     if( $gallery ): 
         foreach( $gallery as $image ):
-        echo '<div class="col-lg-3 col-md-6 col-portfolio mt-3 mb-3 overflow-h">';
+        echo '<div class="col-lg-3 col-md-6 mt-3 mb-3 overflow-h">';
         echo '<div class="img-hover overflow-h">';
         echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:300px;object-fit:cover;'] );
+        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100','style'=>'height:300px;object-fit:cover;'] );
         echo '</a>';
         echo '</div>';
         echo '</div>';
@@ -569,7 +569,7 @@ endwhile; endif;
                     echo '<div class="overflow-h position-relative">';
                     // echo '<div class="position-relative">';
                     echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
-                    echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:300px;object-fit:cover;object-position:top;'] );
+                    echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100','style'=>'height:300px;object-fit:cover;object-position:top;'] );
                     echo '</a>';
                     // echo '</div>';
                     echo '</div>';
@@ -586,7 +586,7 @@ endwhile; endif;
 } elseif($layout == 'Full Height Section'){
     if(have_rows('full_height_section_group')): while(have_rows('full_height_section_group')): the_row();
 
-    echo '<section class="position-relative content-section ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative full-height-section d-flex ' . get_sub_field('classes') . '" style="padding:150px 0;min-height:100vh;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
     if(get_sub_field('show_borders') == 'Yes'){
         echo get_template_part('partials/borders-gold');
@@ -604,7 +604,7 @@ endwhile; endif;
         echo '<div class="container">';
             echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
                 echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
-                echo '<h3 class="text-accent raleway h5" style="letter-spacing: 0.3em;">' . get_sub_field('pretitle') . '</h3>';
+                echo '<h3 class="text-accent raleway h5" style="letter-spacing: 0.3em;font-weight:300;">' . get_sub_field('pretitle') . '</h3>';
                 echo '<div class="cormorant-garamond text-white">' . get_sub_field('title') . '</div>';
 
                 echo '<div class="' . get_sub_field('content_classes') . '" style="' . get_sub_field('content_style') . '">';
@@ -660,8 +660,8 @@ endwhile; endif;
                 // echo '</div>';
                 echo '</div>';
                 
-                echo '<span class="cormorant-garamond d-block pt-4">' . get_sub_field('title') . '</span>';
-                echo '<span class="raleway d-block" style="font-weight:500;">' . get_sub_field('subtitle') . '</span>';
+                echo '<span class="cormorant-garamond d-block pt-4 h5">' . get_sub_field('title') . '</span>';
+                echo '<span class="raleway ls-2 d-block" style="font-weight:500;">' . get_sub_field('subtitle') . '</span>';
                 
                 echo '</div>';
                 endwhile;
@@ -728,7 +728,7 @@ endwhile; endif;
     endwhile; endif;
 } elseif($layout == 'Content + Diagonal Images'){
     if(have_rows('content_diagonal_images')): while(have_rows('content_diagonal_images')): the_row();
-    echo '<section class="position-relative section-content-diagonal-images ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative section-content-diagonal-images ' . get_sub_field('classes') . '" style="min-height: 100vh;padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
     if(get_sub_field('show_borders') == 'Yes'){
         echo get_template_part('partials/borders-gold');
@@ -765,7 +765,7 @@ endwhile; endif;
                     echo '<div class="bg-accent position-absolute w-100 h-100" style="top:0;left:-5px;"></div>';
                     
                     echo wp_get_attachment_image($image['id'], 'full','',[
-                        'class'=>'w-100 h-100 position-relative z-1 col-gallery-diagonal-img',
+                        'class'=>'w-100 h-100 position-relative z-1 col-gallery-diagonal-img skip-lazy',
                         'style'=>'object-fit:cover;'
                         ] );
                         
@@ -776,7 +776,7 @@ endwhile; endif;
 
         echo '<div class="container-fluid position-relative z-3 text-shadow">';
             echo '<div class="row">';
-                echo '<div class="col-lg-3 text-white">';
+                echo '<div class="col-lg-3 text-white pl-lg-5">';
                     echo get_sub_field('content');
                 echo '</div>';
             echo '</div>';
@@ -811,23 +811,25 @@ endwhile; endif;
 
         echo '<div class="container">';
         echo '<div class="row">';
-            echo '<div class="col-12 text-center">';
-                echo '<h3 class="text-accent raleway h5">' . get_sub_field('pretitle') . '</h3>';
-                echo '<h2 class="">' . get_sub_field('title') . '</h2>';
+            echo '<div class="col-12 text-center pb-5">';
+                echo '<h3 class="text-accent raleway h5 pb-4" style="font-weight:300;">' . get_sub_field('pretitle') . '</h3>';
+                echo '<h2 class="h1">' . get_sub_field('title') . '</h2>';
                 if(get_sub_field('content')){
                     echo get_sub_field('content');
                 }
             echo '</div>';
         echo '</div>';
+        echo '</div>';
 
         
         $gallery = get_sub_field('gallery');
         if( $gallery ): 
+            echo '<div class="container-fluid">';
             echo '<div class="row justify-content-center">';
             echo '<div class="col-lg-9">';
             echo '<div class="review-carousel owl-carousel owl-theme arrows-middle">';
             foreach( $gallery as $image ):
-                echo '<div class="col-portfolio mt-3 mb-3 overflow-h">';
+                echo '<div class="mt-3 mb-3 overflow-h">';
                 // echo '<div class="position-relative">';
                 // echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
                 echo wp_get_attachment_image($image['id'], 'full','',[
@@ -848,10 +850,10 @@ endwhile; endif;
                 while(have_rows('icons_repeater')): the_row();
                 $icon = get_sub_field('icon');
                 echo '<div class="col-lg-3 col-md-4 col-6 text-center mb-5">';
-                echo '<div class="border-hover d-flex align-items-center justify-content-center ml-auto mr-auto mb-4" style="border-radius:50%;height:75px;width:75px;border:1px solid var(--accent-primary);">';
+                echo '<div class="border-hover d-flex align-items-center justify-content-center ml-auto mr-auto mb-4" style="border-radius:50%;height:95px;width:95px;border:1px solid var(--accent-primary);">';
     
                 if($icon){
-                    echo wp_get_attachment_image($icon['id'],'full','',['class'=>'','style'=>'height:55px;width:55px;object-fit:contain;']);
+                    echo wp_get_attachment_image($icon['id'],'full','',['class'=>'','style'=>'height:70px;width:70px;object-fit:contain;']);
                 }
     
                 echo '</div>';
@@ -903,14 +905,14 @@ endwhile; endif;
 
             if($layout == 'Content'){
                 if(have_rows('content_group')): while(have_rows('content_group')): the_row();
-                echo '<div class="col-lg-4 col-md-6 text-center">';
+                echo '<div class="col-lg-4 col-md-6 text-center col-content-review-grid">';
                 echo '<div class="pt-5 pb-5 pl-4 pr-4">';
 
                 echo '<div style="line-height:2;">';
                 echo get_sub_field('content');
                 echo '</div>';
                 
-                echo '<span class="ls-2 d-block pt-4" style="color:#a38332;">' . get_sub_field('name') . '</span>';
+                echo '<span class="ls-2 d-block pt-4 raleway" style="color:#a38332;">' . get_sub_field('name') . '</span>';
                 echo '<span class="bold ls-2 d-block pt-2">' . get_sub_field('title') . '</span>';
                 
                 echo '</div>';

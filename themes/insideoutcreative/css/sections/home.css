@@ -7,6 +7,10 @@
     animation: bigGalleryImgZoom 10s ease;
 }
 
+.small-gallery-img.number-4 {
+    object-position: 80%;
+}
+
 @keyframes bigGalleryImgZoom {
     0% {
         transform: scale(1);
@@ -187,20 +191,26 @@
     width: 75%;
 }
 
-.col-gallery-diagonal:nth-child(1) .bg-accent,
 .col-gallery-diagonal:nth-child(1) img {
     clip-path: polygon(30% 0%, 100% 0, 100% 100%, 0% 100%);
 }
 
+.col-gallery-diagonal:nth-child(1) .bg-accent {
+    clip-path: polygon(30% 0%, 31% 0, 1% 100%, 0% 100%);
+}
+
 .col-gallery-diagonal:nth-child(2) {
     width: 50%;
-    /* animation-delay: 2000ms; */
     animation-duration: 3000ms;
 }
 
-.col-gallery-diagonal:nth-child(2) .bg-accent,
+
 .col-gallery-diagonal:nth-child(2) img {
     clip-path: polygon(40% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.col-gallery-diagonal:nth-child(2) .bg-accent {
+    clip-path: polygon(40% 0%, 41% 0, 1% 100%, 0% 100%);
 }
 
 .col-gallery-diagonal:nth-child(3) {
@@ -208,9 +218,12 @@
     animation-duration: 4500ms;
 }
 
-.col-gallery-diagonal:nth-child(3) .bg-accent,
 .col-gallery-diagonal:nth-child(3) img {
     clip-path: polygon(80% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.col-gallery-diagonal:nth-child(3) .bg-accent {
+    clip-path: polygon(80% 0%, 81% 0, 1% 100%, 0% 100%);
 }
 
 @-webkit-keyframes slideInLeftSmooth {
@@ -278,3 +291,18 @@
 }
 
 /* end of review carousel with icons */
+
+/* start of review grid */
+.col-content-review-grid {
+    transition: all .25s ease-in-out;
+}
+
+.col-content-review-grid:hover {
+    transform: scale(1.1);
+}
+
+.col-content-review-grid p {
+    font-size: 100%;
+}
+
+/* end of review grid */

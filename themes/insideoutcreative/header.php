@@ -117,11 +117,14 @@ echo '<section class="hero position-relative d-flex align-items-center justify-c
 
 $gallery = get_sub_field('big_gallery');
 
-if( $gallery ): 
+if( $gallery ):
     echo '<div class="position-absolute w-100 h-100 big-gallery owl-carousel owl-theme overflow-h" style="top:0;left:0;">';
     foreach( $gallery as $image ):
         echo '<div class="h-100">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 big-gallery-img','style'=>'object-fit:cover;'] );
+        echo wp_get_attachment_image($image['id'], 'full','',[
+            'class'=>'w-100 h-100 big-gallery-img skip-lazy',
+            'style'=>'object-fit:cover;'
+        ] );
         echo '</div>';
     endforeach; 
     echo '</div>';
@@ -136,12 +139,13 @@ echo '<div class="position-absolute bg-black w-100 h-100" style="opacity:.5;z-in
 if(have_rows('header_gallery')): while(have_rows('header_gallery')): the_row();
 
 $smallGallery = get_sub_field('small_gallery');
+$smallGalleryCounter = 0;
 
 if( $smallGallery ): 
     
-    
     echo '<div class="position-absolute h-100 small-gallery owl-carousel owl-theme overflow-h" style="top:0;right:0;z-index:4;background-repeat:no-repeat;background-size:contain;">';
     foreach( $smallGallery as $image ):
+        $smallGalleryCounter++;
         echo '<div class="h-100 position-relative small-triangle-width" style="width:35%;">';
         echo '<div class="position-absolute h-100 bg-accent clip-path-bg" style="top:0;right:0;width:100%;
         clip-path: polygon(75% 0%, 77% 0, 2% 100%, 0% 100%);
@@ -154,7 +158,10 @@ if( $smallGallery ):
         -ms-clip-path: polygon(77% 0%, 100% 0, 100% 100%, 2% 100%);
         -webkit-clip-path: polygon(77% 0%, 100% 0, 100% 100%, 2% 100%);
         -moz-clip-path: polygon(77% 0%, 100% 0, 100% 100%, 2% 100%);">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 small-gallery-img','style'=>'object-fit:cover;'] );
+        echo wp_get_attachment_image($image['id'], 'full','',[
+            'class'=>'w-100 h-100 small-gallery-img number-' . $smallGalleryCounter . ' skip-lazy',
+            'style'=>'object-fit:cover;'
+        ] );
         echo '</div>';
         echo '</div>';
     endforeach; 
