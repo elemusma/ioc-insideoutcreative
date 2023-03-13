@@ -29,7 +29,7 @@ style="top:0;left:0;transition:all .25s ease-in-out;z-index:6;background:rgba(0,
 // echo '<div class="position-absolute w-100 bg-accent-quinary header-background" style="top:0;left:0;transition:all .5s ease-in-out;"></div>';
 
 echo '<div class="nav">';
-echo '<div class="container">';
+echo '<div class="container-fluid">';
 echo '<div class="row align-items-center">';
 
 // echo '<div class="col-lg-4 col-md-6 mobile-hidden">';
@@ -50,10 +50,10 @@ if($logo){
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-lg-4 col-md-6 mobile-hidden">';
+echo '<div class="col-lg-6 col-md-6 mobile-hidden">';
 wp_nav_menu(array(
     'menu' => 'primary',
-    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center align-items-center text-white mb-0'
+    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-between align-items-center text-white mb-0'
 ));
 echo '</div>';
 
@@ -144,10 +144,10 @@ if( $smallGallery ):
     foreach( $smallGallery as $image ):
         echo '<div class="h-100 position-relative small-triangle-width" style="width:35%;">';
         echo '<div class="position-absolute h-100 bg-accent clip-path-bg" style="top:0;right:0;width:100%;
-        clip-path: polygon(75% 0%, 100% 0, 100% 100%, 0% 100%);
-        -ms-clip-path: polygon(75% 0%, 100% 0, 100% 100%, 0% 100%);
-        -webkit-clip-path: polygon(75% 0%, 100% 0, 100% 100%, 0% 100%);
-        -moz-clip-path: polygon(75% 0%, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(75% 0%, 77% 0, 2% 100%, 0% 100%);
+        -ms-clip-path: polygon(75% 0%, 77% 0, 2% 100%, 0% 100%);
+        -webkit-clip-path: polygon(75% 0%, 77% 0, 2% 100%, 0% 100%);
+        -moz-clip-path: polygon(75% 0%, 77% 0, 2% 100%, 0% 100%);
         "></div>';
         echo '<div class="h-100 position-relative clip-path-img" style="
         clip-path: polygon(77% 0%, 100% 0, 100% 100%, 2% 100%);
@@ -168,7 +168,7 @@ echo '<div class="row">';
 echo '<div class="col-12">';
 echo '<h1 class="pt-3 pb-3 mb-0 text-shadow raleway" style="font-size:5vw;">' . get_the_title() . '</h1>';
 
-echo '<div class="col-md-12 col-9 pl-0">';
+echo '<div class="col-md-12 col-9 pl-0 raleway">';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile;

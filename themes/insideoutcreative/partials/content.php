@@ -304,7 +304,7 @@ endwhile; endif;
         ]);
     }
 
-    echo '<div class="container">';
+    echo '<div class="container-fluid">';
     echo '<div class="row">';
     echo '<div class="col-12 text-center text-white pb-5">';
 
@@ -325,7 +325,8 @@ endwhile; endif;
 
         echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
-        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:95px;padding-bottom:95px;">';
+        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:50px;padding-bottom:95px;">';
+
 
         // start of hover box
         echo '<div class="hover-box bg-accent-dark position-absolute w-100 h-100 z-1 d-flex align-items-center justify-content-center pl-5 pr-5 col-services-hover-content" style="border:6px solid #fbcf02;top:0;left:0;transition:all .25s ease-in-out;">';
@@ -337,14 +338,24 @@ endwhile; endif;
         echo '</div>';
         // end of hover box
 
+
         echo '<div class="position-absolute w-100 h-100 bg-accent-quaternary" style="top:0;left:0;mix-blend-mode:overlay;opacity:.28;border:2px solid var(--accent-primary);"></div>';
 
         echo '<div class="position-relative pb-3 h-100">';
-        echo '<span class="h1 mb-5 d-block coromant-garamond" style="font-size:41px;">' . get_sub_field('title') . '</span>';
+
+        echo '<span class="cormorant-garamond h1">' . sprintf("%02d", $pagesCounter) . '</span>';
+
+        echo '<h3 class="mb-5 d-block coromant-garamond pt-5 pl-5" style="font-size:30px;letter-spacing:0em;">' . get_sub_field('title') . '</h3>';
 
         echo '<span class="mb-5 d-block coromant-garamond pl-5 h4" style="">' . get_sub_field('subtitle') . '</span>';
 
-        echo '<div class="d-flex align-items-end">';
+        
+
+
+        
+        echo '</div>';
+
+        echo '<div class="d-flex align-items-end position-absolute">';
         echo '<div style="height: 35px;
         width: 35px;
         border: 1px solid var(--accent-primary);
@@ -362,10 +373,6 @@ endwhile; endif;
         echo '<div class="position-absolute" style="border-bottom:8px solid var(--accent-primary);width:75px;bottom:-15px;left:0;"></div>';
 
         echo '</div>';
-        echo '</div>';
-
-
-        
         echo '</div>';
 
         echo '</div>';
@@ -392,16 +399,16 @@ endwhile; endif;
 
 } elseif($layout == 'Testimonials'){
     if(have_rows('testimonials')): while(have_rows('testimonials')): the_row();
-    echo '<section class="position-relative bg-accent-quinary" style="padding:250px 0;">';
+    echo '<section class="position-relative bg-accent-quinary" style="padding:100px 0;">';
 
     // echo wp_get_attachment_image(173,'full','',['class'=>'w-100 position-absolute','style'=>'height:80%;top:10%;left:0;mix-blend-mode:multiply;']);
 
-    echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Old-Paper-Background.jpg" class="w-100 position-absolute" style="height:70%;top:15%;left:0;mix-blend-mode:multiply;" alt="">';
-    echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Quotes-Icon-Gold.png" class="h-auto z-1 img-quote position-absolute" style="width:100px;object-fit:contain;top:7.5%;left:50%;transform:translate(-50%,0);" alt="">';
+    echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Old-Paper-Background.jpg" class="w-100 position-absolute" style="height:80%;top:10%;left:0;mix-blend-mode:multiply;" alt="">';
+    echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Quotes-Icon-Gold.png" class="h-auto z-1 img-quote position-absolute" style="width:50px;object-fit:contain;top:4.5%;left:50%;transform:translate(-50%,0);" alt="">';
     
     echo '<div class="container">';
     echo '<div class="row">';
-    echo '<div class="col-12 text-center pb-5">';
+    echo '<div class="col-12 text-center pb-4">';
     // echo wp_get_attachment_image(218,'full','',['class'=>'h-100 z-1 img-quote','style'=>'object-fit:contain;']);
 
 
@@ -416,16 +423,16 @@ endwhile; endif;
             while(have_rows('testimonial_repeater')): the_row();
 
 
-                echo '<div class="text-center col-lg-6 ml-auto mr-auto">';
-                echo '<div class="pb-4 text-accent" style="font-size:125%;">';
+                echo '<div class="text-center col-lg-8 ml-auto mr-auto">';
+                echo '<div class="pb-4 text-accent raleway" style="letter-spacing:.2em;">';
                 echo get_sub_field('content');
                 echo '</div>';
 
                 $headshot = get_sub_field('headshot');
                 echo wp_get_attachment_image($headshot['id'],'full','',['class'=>'ml-auto mr-auto','style'=>'width:100px;height:100px;object-fit:cover;border-radius:50%;']);
 
-                echo '<span class="d-block h5 cormorant pt-4">' . get_sub_field('name') . '</span>';
-                echo '<span class="d-block text-accent">' . get_sub_field('title') . '</span>';
+                echo '<span class="d-block h5 cormorant-garamond pt-3">' . get_sub_field('name') . '</span>';
+                echo '<span class="d-block text-accent raleway ls-2" style="">' . get_sub_field('title') . '</span>';
                 
                 echo '</div>';
 
@@ -478,7 +485,7 @@ endwhile; endif;
     if(have_rows('contact')): while(have_rows('contact')): the_row();
 
 
-        echo '<section class="position-relative bg-accent-quinary contact-section ' . get_sub_field('classes') . '" style="padding-top:500px;padding-bottom:50px;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+        echo '<section class="position-relative bg-accent-quinary contact-section ' . get_sub_field('classes') . '" style="padding-top:300px;padding-bottom:50px;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
         // echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Old-Paper-Background.jpg" class="w-100 h-100 position-absolute" style="top:0;left:0;object-fit:cover;" alt="">';
 

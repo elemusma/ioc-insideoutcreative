@@ -31,7 +31,8 @@ ul.menu>li>a {
     padding: 0px 9px;
     /* color: white; */
     /* font-weight: 200; */
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
+    font-family: "raleway", sans-serif;
     /* font-size: 14px;
     font-family: unset; */
 }
