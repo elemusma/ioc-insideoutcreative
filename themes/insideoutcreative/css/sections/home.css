@@ -278,16 +278,32 @@
 }
 
 .review-carousel button.owl-next {
-    right: -20%;
+    right: -15%;
 }
 
 .review-carousel button.owl-prev {
-    left: -20%;
+    left: -15%;
 }
 
 .review-carousel button.owl-next img,
 .review-carousel button.owl-prev img {
     width: 100px;
+}
+
+@media only screen and (max-width:991px) {
+    .review-carousel-img {
+        height: 440px !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .review-carousel-img {
+        height: 200px !important;
+    }
+
+    .review-section .bg-img {
+        height: 70% !important;
+    }
 }
 
 /* end of review carousel with icons */

@@ -833,8 +833,8 @@ endwhile; endif;
                 // echo '<div class="position-relative">';
                 // echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
                 echo wp_get_attachment_image($image['id'], 'full','',[
-                    'class'=>'w-100',
-                    'style'=>'height:525px;object-fit:cover;object-position:top;'
+                    'class'=>'w-100 review-carousel-img',
+                    'style'=>'height:550px;object-fit:cover;object-position:top;'
                     ] );
                     // echo '</a>';
                     // echo '</div>';
@@ -905,7 +905,7 @@ endwhile; endif;
 
             if($layout == 'Content'){
                 if(have_rows('content_group')): while(have_rows('content_group')): the_row();
-                echo '<div class="col-lg-4 col-md-6 text-center col-content-review-grid">';
+                echo '<div class="col-lg-4 col-md-6 text-center col-content-review-grid overflow-h">';
                 echo '<div class="pt-5 pb-5 pl-4 pr-4">';
 
                 echo '<div style="line-height:2;">';
@@ -922,7 +922,7 @@ endwhile; endif;
 
             if($layout == 'Image'){
                 if(have_rows('image_group')): while(have_rows('image_group')): the_row();
-                echo '<div class="col-lg-4 col-md-6 text-center p-0">';
+                echo '<div class="col-lg-4 col-md-6 text-center p-0 pt-md-0 pt-3 pb-3 overflow-h">';
                 echo '<div class="position-absolute bg-white" style="top:-4%;left:-4%;width:108%;height:108%;"></div>';
                 $img = get_sub_field('image');
 
