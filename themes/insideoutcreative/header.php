@@ -112,17 +112,6 @@ echo '</header>';
 
 if(is_front_page()) {
 
-// $globalPlaceholderImg = get_field('global_placeholder_image','options');
-// if(is_page()){
-// if(has_post_thumbnail()){
-// the_post_thumbnail('full', array('class' => 'w-100 h-100 bg-img position-absolute'));
-// } else {
-// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
-// }
-// } else {
-// echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
-// }
-
 if(have_rows('header_gallery')): while(have_rows('header_gallery')): the_row();
 echo '<section class="hero position-relative d-flex align-items-center justify-content-center overflow-h" style="height:100vh;">';
 
@@ -177,7 +166,7 @@ echo '<div class="pt-5 pb-5 text-white text-lg-center position-relative" style="
 echo '<div class="container">';
 echo '<div class="row">';
 echo '<div class="col-12">';
-echo '<h1 class="pt-3 pb-3 mb-0 text-shadow" style="font-size:5vw;">' . get_the_title() . '</h1>';
+echo '<h1 class="pt-3 pb-3 mb-0 text-shadow raleway" style="font-size:5vw;">' . get_the_title() . '</h1>';
 
 echo '<div class="col-md-12 col-9 pl-0">';
 if ( have_posts() ) : while ( have_posts() ) : the_post();

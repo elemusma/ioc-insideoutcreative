@@ -59,7 +59,7 @@ $('.small-gallery').owlCarousel({
     nav: false,
     dots: false,
     // stagePadding:170,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 3500,
     autoplaySpeed: 3000,
     autoplayHoverPause: false,
