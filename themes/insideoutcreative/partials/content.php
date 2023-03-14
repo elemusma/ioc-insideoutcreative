@@ -95,9 +95,11 @@ endwhile; endif;
         if(get_sub_field('content_top')){
             echo '<div class="row">';
                 echo '<div class="col-12 text-center pb-5">';
-
+                echo '<div data-aos="fade-up">';
+                
                 echo get_sub_field('content_top');
-
+                
+                echo '</div>';
                 echo '</div>';
             echo '</div>';
         }
@@ -112,15 +114,33 @@ endwhile; endif;
 
         if($img):
         echo '<div class="col-lg-6 pt-lg-0 pt-5 col-img ' . get_sub_field('image_col_classes') . '" style="' . get_sub_field('image_col_style') . '">';
-            echo wp_get_attachment_image($img['id'],'full','',['class'=>'w-100 h-100','style'=>'object-fit:cover;']);
+            if($imgSide == 'Left'){
+                echo '<div data-aos="fade-right">';
+                // echo </div>
+            } else {
+                echo '<div data-aos="fade-left">';
+            }
+
+                echo wp_get_attachment_image($img['id'],'full','',[
+                    'class'=>'w-100 h-100',
+                    'style'=>'object-fit:cover;'
+                ]);
+                echo '</div>'; // end of data aos
+
         echo '</div>';
         endif;
 
         echo '<div class="col-1"></div>';
 
         echo '<div class="col-lg-3 pt-lg-0 pt-5 ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '">';
-        echo $content;
-        echo '</div>';
+        if($imgSide == 'Left'){
+            echo '<div data-aos="fade-left">';
+            // echo </div>
+        } else {
+            echo '<div data-aos="fade-right">';
+        }
+            echo $content;
+            echo '</div>'; // end of data aos
 
         echo '</div>';
         echo '</div>';
@@ -148,21 +168,30 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
     echo '<div class="container-fluid">';
     echo '<div class="row row-content align-items-center justify-content-lg-between justify-content-center">';
 
-    if(have_rows('columns')): while(have_rows('columns')): the_row();
-    echo '<div class="col-lg-3 col-md-6 text-center pt-lg-0 pb-lg-0 position-relative" style="padding-top:100px;padding-bottom:100px;">';
-    echo '<span class="position-absolute h1 mb-0 text-columns-big-title cormorant-garamond" style="
-    opacity: .29;
-    top: -50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 125px;
-    color:var(--accent-primary-dark);
-    ">' . get_sub_field('big_title') . '</span>';
-
-    echo '<span class="" style="color:var(--accent-septenary);letter-spacing:0.5em;">' . get_sub_field('small_title') . '</span>';
-
-    echo '</div>';
-    endwhile; endif;
+    if(have_rows('columns')): 
+        $columnsCounter = 0;
+        while(have_rows('columns')): the_row();
+        $columnsCounter++;
+        if ($columnsCounter > 4){
+            $columnsCounter = 1;
+        }
+            echo '<div class="col-lg-3 col-md-6 text-center pt-lg-0 pb-lg-0 position-relative" style="padding-top:100px;padding-bottom:100px;">';
+            echo '<div data-aos="fade-up" data-aos-delay="' . $columnsCounter . '00">';
+            echo '<span class="position-absolute h1 mb-0 text-columns-big-title cormorant-garamond" style="
+            opacity: .29;
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 125px;
+            color:var(--accent-primary-dark);
+            ">' . get_sub_field('big_title') . '</span>';
+            
+            echo '<span class="" style="color:var(--accent-septenary);letter-spacing:0.5em;">' . get_sub_field('small_title') . '</span>';
+            
+            echo '</div>';
+            echo '</div>';
+        endwhile; 
+    endif;
 
     echo '</div>';
     echo '</div>';
@@ -187,7 +216,9 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
     echo '<div class="row justify-content-center">';
 
     echo '<div class="col-lg-9 text-center">';
+    echo '<div data-aos="fade-up">';
     echo get_sub_field('content');
+    echo '</div>';
     echo '</div>';
 
     echo '</div>';
@@ -216,16 +247,24 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
         echo '<div class="container">';
         echo '<div class="row row-content justify-content-center">';
         echo '<div class="col-lg-9 text-center text-white pb-4">';
+        echo '<div data-aos="fade-up">';
             echo $content;
+        echo '</div>';
         echo '</div>';
 
         echo '</div>';
 
         if(have_rows('icons_inner')):
+            $iconsCounter = 0;
         echo '<div class="row row-content justify-content-center">';
             while(have_rows('icons_inner')): the_row();
+            $iconsCounter++;
+            if ($iconsCounter > 4){
+                $iconsCounter = 1;
+            }
             $icon = get_sub_field('icon');
             echo '<div class="col-lg-3 col-md-4 col-6 text-center mb-5">';
+            echo '<div data-aos="fade-up" data-aos-delay="' . $iconsCounter . '00">';
             echo '<div class="border-hover d-flex align-items-center justify-content-center ml-auto mr-auto mb-4" style="border-radius:50%;height:105px;width:105px;border:1px solid var(--accent-primary);">';
 
             if($icon){
@@ -235,6 +274,7 @@ if(have_rows('text_columns')): while(have_rows('text_columns')): the_row();
             echo '</div>';
                 
                 echo '<h3 class="h6 text-white">' . get_sub_field('title') . '</h3>';
+            echo '</div>';
             echo '</div>';
             endwhile;
         echo '</div>';
@@ -291,7 +331,7 @@ endwhile; endif;
     if(have_rows('process_clone')): while(have_rows('process_clone')): the_row();
     if(have_rows('process_group')): while(have_rows('process_group')): the_row();
 
-    echo '<section class="position-relative content-section ' . get_sub_field('classes') . '" style="background:#464646;padding:75px 0;border-top:75px solid black;border-bottom:75px solid black;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative process-section ' . get_sub_field('classes') . '" style="background:#464646;padding:75px 0;border-top:75px solid black;border-bottom:75px solid black;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
     echo get_template_part('partials/borders-gold');
 
@@ -308,7 +348,9 @@ endwhile; endif;
     echo '<div class="row">';
     echo '<div class="col-12 text-center text-white pb-5">';
 
+    echo '<div data-aos="fade-up">';
     echo get_sub_field('content_top');
+    echo '</div>';
 
     echo '</div>';
     echo '</div>';
@@ -324,6 +366,7 @@ endwhile; endif;
         // sprintf("%02d", $pagesCounter)
 
         echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
+        echo '<div data-aos="fade-up" data-aos-delay="' . $pagesCounter . '50">';
         // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:50px;padding-bottom:95px;">';
 
@@ -376,6 +419,7 @@ endwhile; endif;
         echo '</div>';
 
         echo '</div>';
+        echo '</div>';
         echo '</div>'; // end of col
         // echo '</a>';
         endwhile;
@@ -386,7 +430,9 @@ endwhile; endif;
         echo '<div class="row">';
     echo '<div class="col-12 text-center pb-5">';
 
+    echo '<div data-aos="fade-up">';
     echo get_sub_field('content_bottom');
+    echo '</div>';
 
     echo '</div>';
     echo '</div>';
@@ -407,6 +453,7 @@ endwhile; endif;
     echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Quotes-Icon-Gold.png" class="h-auto z-1 img-quote position-absolute" style="width:50px;object-fit:contain;top:4.5%;left:50%;transform:translate(-50%,0);" alt="">';
     
     echo '<div class="container">';
+    echo '<div data-aos="fade-up">';
     echo '<div class="row">';
     echo '<div class="col-12 text-center pb-4">';
     // echo wp_get_attachment_image(218,'full','',['class'=>'h-100 z-1 img-quote','style'=>'object-fit:contain;']);
@@ -440,6 +487,8 @@ endwhile; endif;
             endwhile;
         endif;
         echo '</div>';
+        echo '</div>';
+
         echo '</div>';
         echo '</div>';
         echo '</section>';
@@ -516,6 +565,7 @@ endwhile; endif;
         echo '<div class="container">';
         echo '<div class="row justify-content-center">';
         echo '<div class="col-lg-9 text-center">';
+        echo '<div data-aos="fade-up">';
         echo '<div class="position-relative p-5" style="">';
         echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/02/Old-Paper-Bg.jpg" alt="" class="position-absolute w-100 h-100" style="top:0;left:0;opacity:.71;object-fit:cover;">';
 
@@ -525,6 +575,7 @@ endwhile; endif;
         echo get_sub_field('content');
         echo '</div>';
         
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -553,7 +604,9 @@ endwhile; endif;
             echo '<div class="container-fluid">';
                 echo '<div class="row">';
                     echo '<div class="col-12 text-center pb-5">';
+                    echo '<div data-aos="fade-up">';
                     echo get_sub_field('content');
+                    echo '</div>';
                     echo '</div>';
                 echo '</div>';
             echo '</div>';
@@ -604,11 +657,15 @@ endwhile; endif;
         echo '<div class="container">';
             echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
                 echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+                echo '<div data-aos="fade-up">';
+
                 echo '<h3 class="text-accent raleway h5" style="letter-spacing: 0.3em;font-weight:300;">' . get_sub_field('pretitle') . '</h3>';
                 echo '<div class="cormorant-garamond text-white">' . get_sub_field('title') . '</div>';
 
                 echo '<div class="' . get_sub_field('content_classes') . '" style="' . get_sub_field('content_style') . '">';
                 echo get_sub_field('content');
+                echo '</div>';
+
                 echo '</div>';
 
                 echo '</div>';
@@ -640,14 +697,22 @@ endwhile; endif;
 
             if(get_sub_field('content')){
                 echo '<div class="col-12 pb-5 text-center">';
+                echo '<div data-aos="fade-up">';
                     echo get_sub_field('content');
+                echo '</div>';
                 echo '</div>';
             }
 
             if(have_rows('gallery_repeater')):
+                $galleryCounter = 0;
                 while(have_rows('gallery_repeater')): the_row();
+                $galleryCounter++;
+                if ($galleryCounter > 3) {
+                    $galleryCounter = 1;
+                }
                 $img = get_sub_field('image');
                 echo '<div class="col-lg-4 col-md-6 text-center mb-5 col-portfolio">';
+                echo '<div data-aos="fade-up" data-aos-delay="' . $galleryCounter . '00">';
                 echo '<div class="position-relative col-portfolio-img">';
                 // echo '<div class="position-relative img-hover overflow-h">';
                 echo '<a href="' . wp_get_attachment_image_url($img['id'], 'full') . '" data-lightbox="img-set-portfolio" data-title="' . $img['title'] . '">';
@@ -663,6 +728,7 @@ endwhile; endif;
                 echo '<span class="cormorant-garamond d-block pt-4 h5">' . get_sub_field('title') . '</span>';
                 echo '<span class="raleway ls-2 d-block" style="font-weight:500;">' . get_sub_field('subtitle') . '</span>';
                 
+                echo '</div>';
                 echo '</div>';
                 endwhile;
             endif;
@@ -694,16 +760,24 @@ endwhile; endif;
             echo '<div class="row ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
 
             echo '<div class="col-lg-3">';
+            echo '<div data-aos="fade-up">';
                 echo get_sub_field('content');
+            echo '</div>';
             echo '</div>';
             
             if(have_rows('icons_repeater')): 
                 echo '<div class="col-lg-9">';
                 echo '<div class="row">';
+                $iconsCounter = 0;
                 while(have_rows('icons_repeater')): the_row();
+                $iconsCounter++;
+                if ($iconsCounter > 4 ) {
+                    $iconsCounter = 1;
+                }
                 $img = get_sub_field('image');
                 echo '<div class="col-lg-3 col-6 text-center mb-4" style="">';
 
+                echo '<div data-aos="fade-up" data-aos-delay="' . $iconsCounter . '00">';
                 echo '<div class="position-relative col-icons-hover h-100 pt-5" style="border:1px solid white;">';
                 echo '<div class="m-auto col-icons-hover-border" style="width:75px;height:75px;border:2px solid #d29f1d;border-radius:50%;padding:10px;">';
                 echo wp_get_attachment_image($img['id'],'full','',[
@@ -714,6 +788,8 @@ endwhile; endif;
                 echo '<h3 class="h6 cormorant-garamond small pt-4 pl-2 pr-2">' . get_sub_field('title') . '</h3>';
                 echo '</div>';
 
+
+                echo '</div>';
 
                 echo '</div>';
                 endwhile; 
@@ -789,7 +865,7 @@ endwhile; endif;
 
     if(have_rows('review_carousel_with_icons')): while(have_rows('review_carousel_with_icons')): the_row();
 
-    echo '<section class="position-relative ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    echo '<section class="position-relative review-carousel-with-icons ' . get_sub_field('classes') . '" style="padding:150px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
 
     if(get_sub_field('show_borders') == 'Yes'){
         echo get_template_part('partials/borders-gold');
@@ -812,11 +888,15 @@ endwhile; endif;
         echo '<div class="container">';
         echo '<div class="row">';
             echo '<div class="col-12 text-center pb-5">';
+
+            echo '<div data-aos="fade-up">';
                 echo '<h3 class="text-accent raleway h5 pb-4" style="font-weight:300;">' . get_sub_field('pretitle') . '</h3>';
                 echo '<h2 class="h1">' . get_sub_field('title') . '</h2>';
                 if(get_sub_field('content')){
                     echo get_sub_field('content');
                 }
+            echo '</div>';
+
             echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -825,6 +905,7 @@ endwhile; endif;
         $gallery = get_sub_field('gallery');
         if( $gallery ): 
             echo '<div class="container-fluid">';
+            echo '<div data-aos="fade-up">';
             echo '<div class="row justify-content-center">';
             echo '<div class="col-lg-9">';
             echo '<div class="review-carousel owl-carousel owl-theme arrows-middle">';
@@ -843,13 +924,20 @@ endwhile; endif;
             echo '</div>';
             echo '</div>';
             echo '</div>';
+            echo '</div>';
+            echo '</div>';
         endif;
 
         if(have_rows('icons_repeater')):
+            echo '<div class="container-fluid">';
+            // echo '<div data-aos="fade-up">';
             echo '<div class="row row-content justify-content-center pt-5">';
+            $iconsCounter = 0;
                 while(have_rows('icons_repeater')): the_row();
                 $icon = get_sub_field('icon');
+                $iconsCounter++;
                 echo '<div class="col-lg-3 col-md-4 col-6 text-center mb-5">';
+                echo '<div data-aos="fade-up" data-aos-delay="' . $iconsCounter . '00">';
                 echo '<div class="border-hover d-flex align-items-center justify-content-center ml-auto mr-auto mb-4" style="border-radius:50%;height:95px;width:95px;border:1px solid var(--accent-primary);">';
     
                 if($icon){
@@ -867,12 +955,15 @@ endwhile; endif;
                     }
 
                 echo '</div>';
+                echo '</div>';
                 endwhile;
+            echo '</div>';
+            // echo '</div>';
             echo '</div>';
             endif;
 
 
-        echo '</div>';
+        // echo '</div>';
 
     echo '</section>';
 
@@ -900,12 +991,18 @@ endwhile; endif;
         if(have_rows('reviews_repeater')):
             echo '<div class="container">';
             echo '<div class="row">';
+            $reviewCounter = 0;
             while(have_rows('reviews_repeater')): the_row();
+            $reviewCounter++;
+            if ($reviewCounter > 3){
+                $reviewCounter = 1;
+            }
             $layout = get_sub_field('content_or_image');
 
             if($layout == 'Content'){
                 if(have_rows('content_group')): while(have_rows('content_group')): the_row();
                 echo '<div class="col-lg-4 col-md-6 text-center col-content-review-grid overflow-h">';
+                echo '<div data-aos="fade-up" data-aos-delay="' . $reviewCounter . '00">';
                 echo '<div class="pt-5 pb-5 pl-4 pr-4">';
 
                 echo '<div style="line-height:2;">';
@@ -917,12 +1014,14 @@ endwhile; endif;
                 
                 echo '</div>';
                 echo '</div>';
+                echo '</div>';
                 endwhile; endif;
             }
 
             if($layout == 'Image'){
                 if(have_rows('image_group')): while(have_rows('image_group')): the_row();
-                echo '<div class="col-lg-4 col-md-6 text-center p-0 pt-md-0 pt-3 pb-3 overflow-h">';
+                echo '<div class="col-lg-4 col-md-6 text-center pt-3 pb-3 overflow-h d-flex">';
+                echo '<div data-aos="fade-up" data-aos-delay="' . $reviewCounter . '00">';
                 echo '<div class="position-absolute bg-white" style="top:-4%;left:-4%;width:108%;height:108%;"></div>';
                 $img = get_sub_field('image');
 
@@ -930,6 +1029,7 @@ endwhile; endif;
                     'class'=>'w-100 h-100 position-relative z-1',
                     'style'=>'object-fit:cover;'
                 ]);
+                echo '</div>';
                 echo '</div>';
                 endwhile; endif;
             }

@@ -23,12 +23,14 @@ if(has_post_thumbnail()){
     echo '<div class="container pb-4">';
     echo '<div class="row justify-content-center">';
     echo '<div class="col-md-9">';
+    echo '<div data-aos="fade-up">';
     echo '<div class="content position-relative pt-5 pb-5 p-4">';
     echo '<div class="position-absolute bg-white" style="opacity:.75;width:100%;height:100%;top:0;left:0;"></div>';
     echo '<div class="position-relative">';
 if(have_posts()) : while(have_posts()): the_post(); the_content(); endwhile; else:
 echo '<p>Sorry, no posts matched your criteria.</p>';
 endif;
+echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</div>';

@@ -113,7 +113,7 @@ echo '</header>';
 if(is_front_page()) {
 
 if(have_rows('header_gallery')): while(have_rows('header_gallery')): the_row();
-echo '<section class="hero position-relative d-flex align-items-center justify-content-center overflow-h" style="height:100vh;">';
+echo '<section class="hero position-relative d-flex align-items-center justify-content-center overflow-h" style="min-height:100vh;">';
 
 $gallery = get_sub_field('big_gallery');
 
