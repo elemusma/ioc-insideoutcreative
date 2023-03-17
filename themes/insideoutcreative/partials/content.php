@@ -777,7 +777,7 @@ endwhile; endif;
                 $img = get_sub_field('image');
                 echo '<div class="col-lg-3 col-6 text-center mb-4" style="">';
 
-                echo '<div data-aos="fade-up" data-aos-delay="' . $iconsCounter . '00">';
+                echo '<div class="h-100" data-aos="fade-up" data-aos-delay="' . $iconsCounter . '00">';
                 echo '<div class="position-relative col-icons-hover h-100 pt-5" style="border:1px solid white;">';
                 echo '<div class="m-auto col-icons-hover-border" style="width:75px;height:75px;border:2px solid #d29f1d;border-radius:50%;padding:10px;">';
                 echo wp_get_attachment_image($img['id'],'full','',[
