@@ -368,7 +368,7 @@ endwhile; endif;
         echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
         echo '<div class="h-100" data-aos="fade-up" data-aos-delay="' . $pagesCounter . '50">';
         // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
-        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:50px;padding-bottom:95px;">';
+        echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:100px;padding-bottom:100px;">';
 
 
         // start of hover box
