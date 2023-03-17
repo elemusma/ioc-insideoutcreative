@@ -135,7 +135,7 @@ $('.review-carousel').owlCarousel({
     nav: true,
     dots: false,
     // stagePadding:170,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 3500,
     autoplaySpeed: 5000,
     autoplayHoverPause: false,

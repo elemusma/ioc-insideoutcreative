@@ -905,7 +905,7 @@ endwhile; endif;
         
         $gallery = get_sub_field('gallery');
         if( $gallery ): 
-            echo '<div class="container-fluid">';
+            echo '<div class="container">';
             echo '<div data-aos="fade-up">';
             echo '<div class="row justify-content-center">';
             echo '<div class="col-lg-9">';
@@ -916,7 +916,7 @@ endwhile; endif;
                 // echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" data-title="' . $image['title'] . '">';
                 echo wp_get_attachment_image($image['id'], 'full','',[
                     'class'=>'w-100 review-carousel-img',
-                    'style'=>'height:550px;object-fit:cover;object-position:top;'
+                    'style'=>'height:460px;object-fit:cover;object-position:top;'
                     ] );
                     // echo '</a>';
                     // echo '</div>';
@@ -930,7 +930,7 @@ endwhile; endif;
         endif;
 
         if(have_rows('icons_repeater')):
-            echo '<div class="container-fluid">';
+            echo '<div class="container">';
             // echo '<div data-aos="fade-up">';
             echo '<div class="row row-content justify-content-center pt-5">';
             $iconsCounter = 0;
