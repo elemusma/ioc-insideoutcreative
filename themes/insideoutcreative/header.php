@@ -50,7 +50,7 @@ if($logo){
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-lg-1"></div>';
+echo '<div class="col-lg-1 mobile-hidden"></div>';
 
 echo '<div class="col-lg-5 col-md-6 mobile-hidden">';
 wp_nav_menu(array(

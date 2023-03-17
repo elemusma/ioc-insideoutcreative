@@ -852,7 +852,8 @@ endwhile; endif;
 
         echo '<div class="container-fluid position-relative z-3 text-shadow">';
             echo '<div class="row">';
-                echo '<div class="col-lg-3 text-white pl-lg-5">';
+            // echo '<div class="col-lg-1"></div>';
+                echo '<div class="col-lg-6 text-white" style="padding-left:70px;">';
                     echo get_sub_field('content');
                 echo '</div>';
             echo '</div>';
