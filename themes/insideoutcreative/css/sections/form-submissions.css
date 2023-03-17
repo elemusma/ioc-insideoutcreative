@@ -1,0 +1,98 @@
+.ast-container {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* logo */
+img.kryptek-logo {
+    margin-top: -60px;
+    min-width: 200px;
+    max-width: 600px;
+}
+
+/* numbers */
+.col-number .number {
+    display: flex;
+    justify-content: center;
+    background: #acacac;
+    color: white;
+    font-weight: 900;
+    font-size: 4rem;
+    min-width: 100px;
+    width: 75%;
+}
+
+/* section-title */
+h3.section-title:after {
+    content: "";
+    background: #c1c1c1;
+    position: absolute;
+    width: 15%;
+    height: 2px;
+    top: 50%;
+    right: 0;
+}
+
+/* fields */
+.col-md-3.col-label:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #d01f25;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+label.field-label:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #d01f25;
+    top: 50%;
+    left: -10px;
+    transform: translate(-15px, -50%);
+}
+
+.wpcf7 input,
+select.wpcf7-select,
+.wpcf7 textarea,
+.wpcf7 input,
+.wpcf7 textarea {
+    width: 100%;
+    box-shadow: inset 1px 1px 4px #8f8f8f;
+    background: #d9d9d9;
+    margin: 2.3px 0;
+    border: none;
+}
+
+/* checkboxes */
+input[type="checkbox"] {
+    width: 9px !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* submit btn */
+input.wpcf7-form-control.wpcf7-submit {
+    background: #ed4d38 !important;
+    color: white;
+    border: none;
+    box-shadow: none !important;
+    min-width: 200px;
+    width: 50% !important;
+    position: relative;
+}
+
+input.wpcf7-form-control.wpcf7-submit:before {
+    content: "";
+    position: absolute;
+    background: black;
+    height: 4px;
+    width: 25px;
+    top: 0;
+    left: 0;
+}
