@@ -39,6 +39,7 @@ wp_enqueue_style('proxima-nova', get_theme_file_uri('/proxima-nova/proxima-nova.
 // wp_enqueue_style('aspira', get_theme_file_uri('/aspira-font/aspira-font.css'));
 wp_enqueue_style('coromant-garamond', '//use.typekit.net/jsh8aeu.css');
 wp_enqueue_style('raleway', '//use.typekit.net/nva2iak.css');
+wp_enqueue_style('cormorant-garamond', '//use.typekit.net/zwj6uoe.css');
 
 }
 add_action('wp_enqueue_scripts', 'insideoutcreative_stylesheets');
