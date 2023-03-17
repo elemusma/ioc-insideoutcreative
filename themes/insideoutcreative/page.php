@@ -10,6 +10,7 @@ echo '<section class="" style="padding:150px 0;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 echo '<div class="col-lg-9">';
+echo '<h1 class="pb-5">' . get_the_title() . '</h1>';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile; else:
