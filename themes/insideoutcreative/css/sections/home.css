@@ -56,11 +56,11 @@
 /* end of header gallery */
 
 /* start of text columns */
-@media only screen and (max-width:991px) {
+/* @media only screen and (max-width:991px) {
     .text-columns-big-title {
         transform: translate(-50%, 80%) !important;
     }
-}
+} */
 
 /* end of text columns */
 
