@@ -950,7 +950,7 @@ endwhile; endif;
                     echo '<h3 class="h6 text-white bold" style="letter-spacing:.2em;">' . get_sub_field('title') . '</h3>';
 
                     if(get_sub_field('content')){
-                        echo '<div class="font-italic cormorant-garamond" style="color:#b2b2b1;">';
+                        echo '<div class="font-italic cormorant-garamond" style="color:#f7f7f7;">';
                             echo get_sub_field('content');
                         echo '</div>';
                     }
