@@ -13,7 +13,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body.nav-open {
+body.nav-open,
+section {
   overflow: hidden;
 }
 
